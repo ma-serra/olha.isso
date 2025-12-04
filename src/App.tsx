@@ -31,7 +31,7 @@ function App() {
     } else if (file.type === 'text/plain') {
       reader.readAsText(file);
     } else {
-      showError(`Tipo de arquivo ${file.type} não suportado`);
+      showError(`File type ${file.type} not supported`);
     }
   };
 
@@ -52,75 +52,24 @@ function App() {
     <>
       <S.GlobalStyles />
       <S.Container>
-        <S.AppHeader>
-          <S.Logo>
-            <span role="img" aria-label="chat">
-              💬
-            </span>{' '}
-            Olha.Isso
-          </S.Logo>
-          <S.Subtitle>Visualizador de Conversas WhatsApp</S.Subtitle>
-        </S.AppHeader>
         <S.Header>
           <Dropzone onFileUpload={processFile} id="dropzone" />
-          {messages.length > 0 && (
-            <>
-              <span>ou</span>
-              <a
-                href={(window as any).uploadedFileUrl || '#'}
-                download={(window as any).uploadedFileName || 'chat.zip'}
-                onClick={e => {
-                  if (!(window as any).uploadedFileUrl) {
-                    e.preventDefault();
-                    alert('Faça upload de um arquivo primeiro');
-                  }
-                }}
-              >
-                Baixar arquivo original
-              </a>
-            </>
-          )}
+          <span>OR</span>
+          <a
+            href={(window as any).uploadedFileUrl || '#'}
+            download={(window as any).uploadedFileName || 'chat.zip'}
+            onClick={e => {
+              if (!(window as any).uploadedFileUrl) {
+                e.preventDefault();
+                alert('Faça upload de um arquivo primeiro');
+              }
+            }}
+          >
+            Download arquivo carregado
+          </a>
         </S.Header>
         <MessageViewer />
         {messages.length > 0 && <Sidebar />}
-        {messages.length === 0 && (
-          <S.WelcomeSection>
-            <S.WelcomeTitle>Bem-vindo ao Olha.Isso</S.WelcomeTitle>
-            <S.WelcomeText>
-              Este aplicativo permite visualizar suas conversas do WhatsApp de
-              forma organizada.
-            </S.WelcomeText>
-            <S.InstructionsList>
-              <li>
-                <strong>1. Exporte sua conversa</strong>
-                <p>
-                  No WhatsApp, abra a conversa e vá em Mais opções → Exportar
-                  conversa
-                </p>
-              </li>
-              <li>
-                <strong>2. Escolha incluir mídia</strong>
-                <p>
-                  Para ver fotos, vídeos e áudios, selecione &quot;Incluir
-                  mídia&quot;
-                </p>
-              </li>
-              <li>
-                <strong>3. Faça o upload</strong>
-                <p>Arraste o arquivo .zip ou .txt para a área acima</p>
-              </li>
-              <li>
-                <strong>4. Visualize e exporte</strong>
-                <p>Use o menu lateral para filtrar e exportar em HTML</p>
-              </li>
-            </S.InstructionsList>
-            <S.Footer>
-              <strong>Serra & Tuaf Advogados</strong>
-              <br />
-              Soluções jurídicas digitais
-            </S.Footer>
-          </S.WelcomeSection>
-        )}
       </S.Container>
     </>
   );
