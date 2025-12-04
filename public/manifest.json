@@ -1,6 +1,7 @@
 {
-  "short_name": "zap",
-  "name": "zap",
+  "short_name": "Olha.Isso",
+  "name": "Olha.Isso - Visualizador de Conversas WhatsApp",
+  "description": "Visualizador de conversas WhatsApp para clientes - Serra & Tuaf Advogados",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +11,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#07bc4c",
   "background_color": "#ffffff"
 }

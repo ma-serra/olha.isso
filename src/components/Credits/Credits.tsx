@@ -2,11 +2,13 @@ function Credits() {
   return (
     <div>
       <small>
-        Made by <a href="https://lorisbettazza.com">Loris Bettazza</a>
+        <strong>Serra & Tuaf Advogados</strong>
         <br />
-        View{' '}
-        <a href="https://github.com/Pustur/whatsapp-chat-parser-website">
-          Source code
+        Soluções jurídicas digitais
+        <br />
+        <br />
+        <a href="mailto:contato@serraetuaf.adv.br" style={{ color: '#07bc4c' }}>
+          contato@serraetuaf.adv.br
         </a>
       </small>
     </div>
